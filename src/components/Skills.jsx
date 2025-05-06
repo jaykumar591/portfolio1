@@ -19,10 +19,11 @@ function Skills({id}) {
         <SkillGrid name="typescript" percent={70}/>
         <SkillGrid name="nextjs" percent={70}/>
         <SkillGrid name={"java"} percent={80}/>
-        <SkillGrid name="cplusplus" percent={70}/>
+        <SkillGrid name="cpp" percent={70}/>
         <SkillGrid name="mysql" percent={90}/>
         <SkillGrid name="springboot" percent={40}/>
         <SkillGrid name={"python"} percent={30}/>
+        <SkillGrid name={"docker"} percent={30}/>
       </section>
     </div>
   );
