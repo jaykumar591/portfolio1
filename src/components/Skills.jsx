@@ -3,61 +3,27 @@ import SkillData from "../data/skillsData";
 import BackandFormate from "./BackandFormate";
 import BackandData from "../data/backandData";
 import frontenData  from "../data/frontendData";
-// import {useStore} from '../data/store'
-// import { useEffect } from "react";
-// import FrontendData from "../data/frontendData";
+import SkillGrid from "./SkillGrid";
 
 function Skills({id}) {
-  // const {backend,frontend,getBackend,getFrontend} = useStore()
-
-  // useEffect(()=>{
-  //   getBackend()
-  //   getFrontend()
-  // },[])
+ 
   return (
     <div id={id??'box'} className="min-h-screen py-10 px-4 bg-black">
-      <h1 className="text-white pt-32 text-center font-bold text-4xl mb-10">Skills</h1>
-
-      {/* Main grid container */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
-        {/* Programming Languages Section */}
-        <div className="w-full flex flex-col items-center  max-w-xl bg-black text-white rounded-lg p-6 shadow-md">
-          <h2 className="text-2xl font-serif text-center mb-4">Programming Languages</h2>
-          {
-            SkillData.map((skill, index) => {
-              return (
-                <SkillFormate key={index} title={skill.title} description={skill.description} img={skill.image} level={skill.level} />
-              );
-            })
-          }
-        </div>
-
-        {/* Backend Section */}
-        <div className="w-full max-w-xl bg-black text-white rounded-lg p-6 shadow-md">
-          <h2 className="text-2xl font-serif text-center mb-4">Backend</h2>
-          {
-            BackandData.map((back, index) => {
-              return (
-                <BackandFormate key={index} img={back.img} title={back.technology} description={back.description}/>
-              )
-            })
-          }
-
-        </div>
-
-        {/* Frontend Section */}
-        <div className="w-full max-w-xl bg-black text-white rounded-lg p-6 shadow-md">
-          <h2 className="text-2xl font-serif text-center mb-4">Frontend</h2>
-             {
-              frontenData.map((front, index) => {
-                return (
-                  <BackandFormate key={index}  img={front.img} title={front.technology} description={front.description}/>
-
-                )
-              })
-             }
-        </div>
-      </div>
+      <section className='flex flex-wrap gap-4 border border-gray-800 rounded-xl p-2  pb-8 mt-10 justify-center'>
+        <h1 className='w-full text-white text-4xl font-bold text-center'>Skills</h1>
+        <SkillGrid name={"javascript"} percent={85}/>
+        <SkillGrid name="express" percent={90}/>
+        <SkillGrid name="postgresql" percent={80}/>
+        <SkillGrid name="react" percent={90}/>
+        <SkillGrid name="mongodb" percent={70}/>
+        <SkillGrid name="typescript" percent={70}/>
+        <SkillGrid name="nextjs" percent={70}/>
+        <SkillGrid name={"java"} percent={80}/>
+        <SkillGrid name="cplusplus" percent={70}/>
+        <SkillGrid name="mysql" percent={90}/>
+        <SkillGrid name="springboot" percent={40}/>
+        <SkillGrid name={"python"} percent={30}/>
+      </section>
     </div>
   );
 }

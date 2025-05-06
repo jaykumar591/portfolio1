@@ -1,4 +1,4 @@
-import React from 'react';
+
 import image from '../images/image';
 
 const Header = () => {
@@ -12,10 +12,10 @@ const Header = () => {
       <div>
         <h1 className="text-4xl font-extrabold text-gray-800">Jay Kumar</h1>
         <p className="text-lg text-gray-600 mt-1">
-          Web Developer | Backend Developer | Frontend Developer| Android Developer
+          Web Developer  |  Android Developer
         </p>
         <div className="text-sm text-gray-500 mt-2">
-          <p>📞 +91 8809125183 | 📧 jaykumar2dear@gmail.com</p>
+          <p>📞 +91 8809125183 | 📧 jaykumar3dear@gmail.com</p>
           <p>📍 Bihar, India</p>
         </div>
       </div>

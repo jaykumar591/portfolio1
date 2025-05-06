@@ -56,9 +56,9 @@ const Contact =({id}) => {
           </div>
         </div>
         <div className="md:flex md:items-center">
-          <button className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+          <a href='mailto:jaykumar3dear@gmail.com' className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
             Send
-          </button>
+          </a>
         </div>
       </form>
     </div>

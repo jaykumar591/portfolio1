@@ -1,62 +1,82 @@
 import image1 from '../assets/img/image1.png';
-import gsap from 'gsap'
-import { useGSAP } from '@gsap/react'
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 import { NavLink } from 'react-router-dom';
+import ProfileHeader from './ProfileHeader';
+import ProfileLinks from './ProfileLinks';
+import SocialIcons from './SocialIcons';
+import StatsSection from './StateSection';
+import SkillGrid from './SkillGrid';
 import Projects from './Projects';
-import Skills from './Skills';
-import Contact from './Contact';
-import About from './About';
-import Cv from './Cv';
-import { titleAnimation, scrollAnimation ,scrollAbout} from '../animation/HomeAnime'
+import { titleAnimation, scrollAnimation, scrollAbout } from '../animation/HomeAnime';
 
 function Home() {
-
-
   useGSAP(() => {
-    titleAnimation()
-    gsap.context(()=>{
+    const ctx = gsap.context(() => {
+      titleAnimation();
+      scrollAnimation();
+      scrollAbout();
+    });
 
-      scrollAnimation()
-      scrollAbout()
-    })
-  }, [])
+    return () => ctx.revert(); // Cleanup GSAP animations
+  }, []);
+
   return (
-    <div className="bg-black home flex flex-col m-auto px-4 md:px-8 lg:px-16">
-      <h1 className="mt-20 text-4xl font-bold text-white shadow-xl text-center pt-20  heading1">Welcome to My Creative Space</h1>
-      <div id='heading' className="name flex mt-6">
-        <div id='box' className="flex gap-x-96  items-center  justify-between flex-wrap mx-auto mt-6 ">
-          <div className='title mx-auto  max-w-xs h-auto flex flex-col justify-center p-4'>
-            <h1 className='name1 text-2xl font-semibold text-center'>My name Jay Kumar</h1>
-            <p className='text-center text-lg font-bold'>I am a developer</p>
-            <p className='text-sm text-center font-semibold'>Frontend | Backend | Fullstack | React | Next Js | React Native | Expo | DSA | MongoDB | Core Java | JDBC</p>
-            <div className='mx-auto bg-blue-500 px-6 rounded-lg hover:bg-blue-600 transition-colors duration-300 ease-in-out delay-150 py-2 mt-5'>
-              <NavLink to={"/cv"} className='btn'>Show CV</NavLink>
+    <div className="bg-black text-white px-4 md:px-12 lg:px-20 font-sans">
+
+      {/* Hero Section */}
+      <section className="min-h-screen flex flex-col items-center justify-center text-center pt-28 pb-20">
+        <div className="flex flex-col md:flex-row items-center justify-between w-full gap-10 mt-10">
+          
+          {/* Left: Intro + CV Link */}
+          <div className="max-w-lg text-center flex flex-col justify-center md:text-left  space-y-4">
+            <ProfileHeader />
+            <div className="mt-6 mx-auto">
+              <NavLink
+                to="/cv"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-all duration-300"
+              >
+                Show CV
+              </NavLink>
             </div>
           </div>
 
-          <div className='img mx-auto  max-w-md h-auto mt-4 md:mt-0 md:mr-14'>
-            <img className='w-full h-auto' src={image1} alt="Jay Kumar" />
+          {/* Right: Profile Image */}
+          <div className="w-full md:w-1/2 max-w-sm">
+            <img
+              src={image1}
+              alt="Jay Kumar"
+              className="rounded-xl shadow-lg w-full object-cover"
+            />
           </div>
         </div>
-      </div>
-      <div id='page1'>
-        
-          <About  id={"box"} />
-       
+      </section>
 
-      </div>
-      <div id='page2'>
 
-        <Projects id={"box"} />
-      </div>
-      <div id='page3'>
-
-        <Skills  id={"box"} />
-      </div>
-      <div  id='page4'>
-
-        <Contact id={"box"} />
-      </div>
+      {/* Profile Links, Social Icons, Stats */}
+      <section id="profile" className="py-16 justify-center border-t flex-wrap border-gray-700 flex  gap-10">
+        <StatsSection />
+        <ProfileLinks />
+        <SocialIcons />
+      </section>
+      <section className='flex flex-wrap gap-4 pb-8  justify-center'>
+        <h1 className='w-full text-2xl font-bold text-center'>Skills</h1>
+        <SkillGrid name={"javascript"} percent={85}/>
+        <SkillGrid name="express" percent={90}/>
+        <SkillGrid name="postgresql" percent={80}/>
+        <SkillGrid name="react" percent={90}/>
+        <SkillGrid name="mongodb" percent={70}/>
+        <SkillGrid name="typescript" percent={70}/>
+        <SkillGrid name="nextjs" percent={70}/>
+        <SkillGrid name={"java"} percent={80}/>
+        <SkillGrid name="cplusplus" percent={70}/>
+        <SkillGrid name="mysql" percent={90}/>
+        <SkillGrid name="springboot" percent={40}/>
+        <SkillGrid name={"python"} percent={30}/>
+      </section>
+      <section className='mb-10'>
+        <Projects/>
+      </section>    
     </div>
   );
 }
